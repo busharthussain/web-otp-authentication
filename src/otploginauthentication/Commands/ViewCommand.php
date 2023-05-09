@@ -51,7 +51,7 @@ class ViewCommand extends GeneratorCommand
      */
     protected function getPath($name)
     {
-        return resource_path('views/auth/' . $this->getDirectoryName($name));
+        return resource_path('views/auth');
     }
 
     protected function getDirectoryName($name)

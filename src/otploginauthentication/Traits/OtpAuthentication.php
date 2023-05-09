@@ -24,6 +24,7 @@ trait OtpAuthentication
             $user = User::where('email', $request->input('email'))->first();
             $errorMessage = 'These credentials do not match our records.';
             $credentials = $this->getLoginCredentials();
+            Auth::logout();
             $messageType = 'email';
             if (!Auth::attempt($credentials)) {
                 RateLimiter::hit($this->throttleKey($request), $seconds = 60);

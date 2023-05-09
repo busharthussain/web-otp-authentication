@@ -35,6 +35,7 @@ class OtpAuthenticationServiceProvider extends ServiceProvider
         ], 'migrations');
 
         require_once __DIR__.'/otploginauthentication/Traits/OtpAuthentication.php';
+        require_once __DIR__.'/otploginauthentication/Mail/OtpMail.php';
 
     }
 }
