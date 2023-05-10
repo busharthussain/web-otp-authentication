@@ -23,8 +23,7 @@ trait OtpAuthentication
             $this->validateLogin($request);
             $user = User::where('email', $request->input('email'))->first();
             $errorMessage = 'These credentials do not match our records.';
-            $credentials = $this->getLoginCredentials();
-            Auth::logout();
+            $credentials = $this->getLoginCredentials();;
             $messageType = 'email';
             if (!Auth::attempt($credentials)) {
                 RateLimiter::hit($this->throttleKey($request), $seconds = 60);
@@ -39,6 +38,8 @@ trait OtpAuthentication
                 }
 
                 return redirect()->to('login')->with($messageType, $errorMessage);
+            }else{
+                Auth::logout();
             }
         }
 
@@ -94,7 +95,7 @@ trait OtpAuthentication
         $verificationCode = $this->generateOtp($value,$email,$user);
         $otp = $verificationCode['otp'];
         if ($email){
-            Mail::to('busharthussain163@gmail.com')->send(new OtpMail($otp));
+            Mail::to($value)->send(new OtpMail($otp));
         }else{
             $responce = $this->TwilioOtp($value,$otp);
             $message = !empty($responce) ? $responce['message'] : '';

@@ -4,6 +4,12 @@ Two-factor authentication (2FA) adds an extra layer of security to your applicat
 
 ## Installation
 
+Here is the complete video of the usage and installation of the package.
+
+<a href="https://www.youtube.com/watch?v=gjDkagdKp4U" onclick="window.open(this.href,'_blank');return false;">
+  <img src="video/thumbnail.png" alt="Laravel magic">
+</a>
+
 #### Step 1: Install Laravel
 
 This is optional; however, if you have not created the laravel app, then you may go ahead and execute the below command:
