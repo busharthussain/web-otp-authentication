@@ -6,7 +6,7 @@
     "repositories": [
         {
             "type": "composer",
-            "url": "https://github.com/busharthussain/otploginauthentication"
+            "url": "https://github.com/busharthussain/web-otp-authentication"
         }
     ],
     "autoload": {
